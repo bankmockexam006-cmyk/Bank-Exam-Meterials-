@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071b33">
+  <title>BankReady | ICICI Bank Exam Practice</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="BankReady home"><span class="brand-mark">B</span><span>Bank<span class="accent">Ready</span><small>ICICI BANK EXAM PRACTICE</small></span></a>
+      <nav><button class="nav-btn active" data-view="home">Dashboard</button><button class="nav-btn" data-view="practice">Practice</button><button class="nav-btn" data-view="mock">Mock test</button></nav>
+      <div class="profile-area"><span id="user-label">Guest mode</span><button id="logout-btn" class="btn btn-ghost hidden">Log out</button></div>
+    </header>
+    <main>
+      <section id="login-view" class="login-layout">
+        <div class="login-copy">
+          <div class="eyebrow"><span class="dot"></span> YOUR BANKING CAREER STARTS HERE</div>
+          <h1>Prepare smarter.<br><span>Move forward.</span></h1>
+          <p>Practice banking awareness, aptitude, reasoning, English and customer service with a 500-question learning bank.</p>
+          <div class="trust-points"><span>✓ 500 practice questions</span><span>✓ Instant explanations</span><span>✓ Timed mock tests</span></div>
+          <div class="login-note">Practice material for preparation only. Not an official ICICI Bank website.</div>
+        </div>
+        <div class="login-card">
+          <div class="card-icon">↗</div><h2>Welcome back</h2><p class="muted">Sign in with your email and phone number to save your progress on this device.</p>
+          <form id="login-form">
+            <label for="full-name">Full name</label><input id="full-name" type="text" placeholder="Enter your name" required minlength="2">
+            <label for="email">Email address</label><input id="email" type="email" placeholder="you@example.com" required>
+            <label for="phone">Phone number</label><input id="phone" type="tel" inputmode="numeric" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+            <button class="btn btn-primary full" type="submit">Enter practice portal <span>→</span></button>
+          </form>
+          <p class="small muted">Demo login: this starter validates the fields locally. It does not send an OTP or securely authenticate a real account.</p>
+          <div id="login-error" class="error" role="alert"></div>
+        </div>
+      </section>
+      <section id="main-view" class="hidden">
+        <section class="hero-panel">
+          <div><div class="eyebrow"><span class="dot"></span> PRACTICE WITH PURPOSE</div><h1 id="welcome-title">Good to see you.</h1><p>Build confidence one question at a time. Your practice progress is saved on this device.</p><button class="btn btn-primary" id="start-practice">Start practicing <span>→</span></button></div>
+          <div class="hero-art"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-stat"><span class="stat-icon">✓</span><strong>500</strong><small>Practice questions</small></div><div class="mini-card mini-one">BANKING <b>01</b></div><div class="mini-card mini-two">APTITUDE <b>02</b></div></div>
+        </section>
+        <section class="stats-grid">
+          <div class="stat-card"><span class="stat-label">QUESTION BANK</span><strong>500</strong><span class="stat-sub">Across 5 subjects</span></div>
+          <div class="stat-card"><span class="stat-label">ATTEMPTED</span><strong id="attempted-count">0</strong><span class="stat-sub">Questions answered</span></div>
+          <div class="stat-card"><span class="stat-label">CORRECT ANSWERS</span><strong id="correct-count">0</strong><span class="stat-sub">Keep building accuracy</span></div>
+          <div class="stat-card"><span class="stat-label">ACCURACY</span><strong id="accuracy-count">0%</strong><span class="stat-sub">Based on your attempts</span></div>
+        </section>
+        <section class="section-head"><div><div class="eyebrow">LEARNING PATH</div><h2>Choose your subject</h2><p class="muted">Study by topic, or try a timed mixed mock test.</p></div><button class="text-btn" id="see-all">View all questions →</button></section>
+        <section id="category-grid" class="category-grid"></section>
+        <section class="disclaimer"><strong>Important:</strong> This is an independent educational practice site and is not affiliated with or endorsed by ICICI Bank. Questions are practice examples, not verified past-paper questions. Always check official recruitment notices for current exam patterns.</section>
+      </section>
+      <section id="quiz-view" class="hidden">
+        <div class="quiz-top"><button class="text-btn" id="back-dashboard">← Dashboard</button><div class="quiz-mode" id="quiz-mode">Practice mode</div><div id="timer" class="timer hidden">30:00</div></div>
+        <div class="progress-track"><div id="progress-fill"></div></div>
+        <div class="quiz-layout"><div class="question-main"><div class="question-meta"><span id="question-category" class="pill">Banking Awareness</span><span id="question-number">Question 1 of 500</span></div><h2 id="question-text">Question goes here</h2><div id="options-list" class="options-list"></div><div id="answer-feedback" class="feedback hidden"></div><div class="quiz-actions"><button id="prev-question" class="btn btn-secondary">Previous</button><button id="next-question" class="btn btn-primary">Next question →</button><button id="finish-test" class="btn btn-primary hidden">Finish test</button></div></div><aside class="question-side"><h3>Question navigator</h3><p class="muted small">Select a number to jump to a question.</p><div id="question-nav" class="question-nav"></div><div class="legend"><span><i class="legend-current"></i> Current</span><span><i class="legend-done"></i> Answered</span></div></aside></div>
+      </section>
+      <section id="result-view" class="hidden result-wrap"><div class="result-card"><div class="result-check">✓</div><div class="eyebrow">TEST COMPLETED</div><h1>Your practice result</h1><p id="result-subtitle" class="muted">Here is how you did.</p><div class="result-score" id="result-score">0%</div><div class="result-metrics"><div><strong id="result-correct">0</strong><span>Correct</span></div><div><strong id="result-wrong">0</strong><span>Incorrect / skipped</span></div><div><strong id="result-total">0</strong><span>Total questions</span></div></div><button id="review-test" class="btn btn-secondary">Review answers</button> <button id="return-home" class="btn btn-primary">Back to dashboard</button></div></section>
+    </main>
+    <footer><span>BankReady · Independent exam preparation</span><span>Learn consistently. Verify information. Protect your credentials.</span></footer>
+  </div>
+  <script src="questions.js"></script><script src="app.js"></script>
+</body></html>
